@@ -31,6 +31,8 @@
         <!-- Cria as tabelas do banco de dados -->
         <property name="hbm2ddl.auto">create</property>
 
+		<!-- Mapeamento -->
+		<mapping class= "br.com.sisvendas.domain.Estado"/> 
 <!--         <mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml"/> -->
 
     </session-factory>
