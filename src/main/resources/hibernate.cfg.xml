@@ -40,6 +40,8 @@
 		<mapping class= "br.com.sisvendas.domain.Cliente"/>
 		<mapping class= "br.com.sisvendas.domain.Funcionario"/>
 		<mapping class= "br.com.sisvendas.domain.Usuario"/>
+		<mapping class= "br.com.sisvendas.domain.Venda"/>
+		<mapping class= "br.com.sisvendas.domain.ItemVenda"/>
 <!--         <mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml"/> -->
 
     </session-factory>
