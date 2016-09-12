@@ -25,7 +25,7 @@ public class EstadoBean {
 	
 	public void salvar(){
 		Messages.addGlobalInfo("Estado salvo com sucesso!");
-		Messages.addGlobalInfo("Nome: "+ estado.getNome() + "Sigla: " + estado.getSigla());
+		Messages.addGlobalInfo("Nome: "+ estado.getNome() + " Sigla: " + estado.getSigla());
 //		String msg = "Estado salvo com sucesso!";
 //		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg);
 //		
