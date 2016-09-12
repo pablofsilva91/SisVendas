@@ -68,6 +68,7 @@ public class EstadoDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void editar(){
 		Long codigo = 4L;
 		EstadoDAO estadoDAO = new EstadoDAO();
@@ -85,6 +86,25 @@ public class EstadoDAOTest {
 			
 			System.out.println("Editado para: " + estado.getSigla() + " - " + estado.getNome());
 		}
+	}
+	
+	@Test
+
+	public void merge(){
+		//Merge Incluir
+//		Estado estado = new Estado();
+//		estado.setNome("Paraiba");
+//		estado.setSigla("PB");
+//		
+//		EstadoDAO estadoDAo = new EstadoDAO();
+//		estadoDAo.merge(estado);
+		
+		//Merge Editar
+		EstadoDAO estadoDAO = new EstadoDAO();
+		Estado estado = estadoDAO.buscar(5L);
+		estado.setNome("Piauí");
+		estado.setSigla("PI");
+		estadoDAO.merge(estado);
 	}
 
 }
