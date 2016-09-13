@@ -1,15 +1,19 @@
 package br.com.sisvendas.bean;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import org.omnifaces.util.Messages;
 
+import br.com.sisvendas.dao.EstadoDAO;
 import br.com.sisvendas.domain.Estado;
 
+@SuppressWarnings("serial")
 @ManagedBean
 @ViewScoped
-public class EstadoBean {
+public class EstadoBean implements Serializable {
 	private Estado estado;
 	
 	public Estado getEstado() {
@@ -24,8 +28,19 @@ public class EstadoBean {
 	}
 	
 	public void salvar(){
-		Messages.addGlobalInfo("Estado salvo com sucesso!");
-		Messages.addGlobalInfo("Nome: "+ estado.getNome() + " Sigla: " + estado.getSigla());
+		try{
+			EstadoDAO estadoDAO = new EstadoDAO();
+			estadoDAO.salvar(estado);
+			
+			novo();
+			
+			Messages.addGlobalInfo("Estado salvo com sucesso!");
+	
+			//throw new RuntimeException("Erro forçado!");
+		}catch(RuntimeException erro){
+			Messages.addGlobalError("Ocorreu um erro ao tentar salvar o Estado!");
+			erro.printStackTrace();
+		}
 //		String msg = "Estado salvo com sucesso!";
 //		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, msg);
 //		

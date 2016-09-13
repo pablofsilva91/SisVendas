@@ -16,7 +16,7 @@
 			paginator="true">
 			<f:facet name="footer">
 				<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
-					actionListener="#{estadoBean.novo}"/>
+					actionListener="#{estadoBean.novo}" update=":formCadastro:painelCadastro"/>
 			</f:facet>
 			<p:column headerText="Nome" sortBy="" filterBy="">
 			</p:column>
@@ -30,8 +30,8 @@
 	<p:dialog header="Estados - Cadastro" widgetVar="dialogo" draggable="false" resizable="false"
 		modal="true" closable="false">
 		
-		<h:form>
-			<h:panelGrid columns="2">
+		<h:form id="formCadastro">
+			<h:panelGrid id="painelCadastro" columns="2">
 				<p:outputLabel value="Nome"/>
 				<p:inputText maxlength="50" size="30" value="#{estadoBean.estado.nome}"  />
 				<p:outputLabel value="Sigla"/>
@@ -39,7 +39,7 @@
 			</h:panelGrid>	
 			
 			<h:panelGrid columns="2">	
-				<p:commandButton value="Salvar" actionListener="#{estadoBean.salvar()}" update=":message"/>
+				<p:commandButton value="Salvar" actionListener="#{estadoBean.salvar()}" update=":message :formCadastro:painelCadastro"/>
 				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
 			</h:panelGrid>
 		</h:form>
