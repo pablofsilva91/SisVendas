@@ -25,8 +25,13 @@
 				<h:outputText value="#{estado.sigla}"/>
 			</p:column>
 			<p:column headerText="Opções">
-				<p:commandButton icon="ui-icon-trash" actionListener="#{estadoBean.excluir}" update=":message" >
+				<p:commandButton icon="ui-icon-trash" actionListener="#{estadoBean.excluir}" update=":message :formListagem:tabela" >
 					<p:confirm header="Confirmação" message="Deseja excluir o estado?" icon="ui-icon-alert"/>
+					<f:attribute name="estadoSelecionado" value="#{estado}"/>
+				</p:commandButton>
+				<p:commandButton icon="ui-icon-pencil" actionListener="#{estadoBean.editar}" update=":formCadastro:painelCadastro" 
+					oncomplete="PF('dialogo').show();">
+					
 					<f:attribute name="estadoSelecionado" value="#{estado}"/>
 				</p:commandButton>
 			</p:column>
