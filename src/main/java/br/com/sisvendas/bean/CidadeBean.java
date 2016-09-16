@@ -17,6 +17,7 @@ import br.com.sisvendas.domain.Cidade;
 @ViewScoped
 
 public class CidadeBean implements Serializable {
+	private Cidade cidade;
 	private List<Cidade> cidades;
 	
 	public List<Cidade> getCidades(){
@@ -27,6 +28,14 @@ public class CidadeBean implements Serializable {
 		this.cidades = cidades;
 	}
 	
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
 	@PostConstruct
 	public void listar(){
 		try{
@@ -35,6 +44,10 @@ public class CidadeBean implements Serializable {
 		}catch(RuntimeException erro){
 			Messages.addFlashGlobalError("Ocorreu um erro ao listar as cidades");
 		}
+	}
+	
+	public void novo(){
+		cidade = new Cidade();
 	}
 	
 
