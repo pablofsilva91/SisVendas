@@ -9,13 +9,14 @@
 <title>Cidades</title>
 </h:head>
 <h:body>
-	<h:form>
+	<p:growl id="message" />
+	<h:form id="formListagem">
 	<p:panel header="Cidades - Listagem">
-		<p:dataTable emptyMessage="Nenhum registro encontrado!"
+		<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado!"
 			paginator="true" value="#{cidadeBean.cidades}" var="cidade" rows="10" >
 			<f:facet name="footer">
 				<p:commandButton value="Novo" actionListener="#{cidadeBean.novo}"
-				oncomplete="PF('dialogo').show();" update=":formCadastro:painelCadastro"/>
+				oncomplete="PF('dialogo').show();" update=":message :formCadastro:painelCadastro"/>
 			</f:facet>
 			<p:column headerText="Nome" filterBy="#{cidade.nome}" sortBy="#{cidade.nome}">
 				<h:outputText value="#{cidade.nome}" />
@@ -40,12 +41,14 @@
 				
 				<p:outputLabel value="Estado:" />
 				<p:selectOneMenu filter="true" value="#{cidadeBean.cidade.estado}">
-					<f:selectItem itemValue="" itemLabel="Selecione um estado"/>
+					<f:selectItem noSelectionOption="true" itemLabel="Selecione um estado"/>
+					<f:selectItems value="#{cidadeBean.estados}" var="estado" itemValue="#{estado}" itemLabel="#{estado.nome}" />
 				</p:selectOneMenu>
 			</h:panelGrid>	
 			
 			<h:panelGrid columns="2">	
-				<p:commandButton value="Salvar"/>
+				<p:commandButton value="Salvar" actionListener="#{cidadeBean.salvar}" 
+					update=":message :formCadastro:painelCadastro :formListagem:tabela"/>
 				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
 			</h:panelGrid>
 		</h:form>
