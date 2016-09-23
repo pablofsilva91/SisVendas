@@ -49,10 +49,12 @@
 		
 		<h:form id="formCadastro">
 			<h:panelGrid id="painelCadastro" columns="2">
-				<p:outputLabel value="Nome"/>
-				<p:inputText maxlength="50" size="30" value="#{estadoBean.estado.nome}"  />
-				<p:outputLabel value="Sigla"/>
-				<p:inputText maxlength="2" size="2" value="#{estadoBean.estado.sigla}" />
+				<p:outputLabel for="nome" value="Nome"/>
+				<p:inputText id="nome" maxlength="50" size="30" value="#{estadoBean.estado.nome}" 
+					required="true" requiredMessage="O campo Nome é de preenchimento obrigatório!" />
+				<p:outputLabel for="sigla" value="Sigla"/>
+				<p:inputText id="sigla" maxlength="2" size="2" value="#{estadoBean.estado.sigla}" 
+					required="true" requiredMessage="O campo Sigla é de preenchimento obrigatório!"/>
 			</h:panelGrid>	
 			
 			<h:panelGrid columns="2">	
