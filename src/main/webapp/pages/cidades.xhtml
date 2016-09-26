@@ -16,7 +16,9 @@
 			paginator="true" value="#{cidadeBean.cidades}" var="cidade" rows="10" >
 			<f:facet name="footer">
 				<p:commandButton value="Novo" actionListener="#{cidadeBean.novo}"
-				oncomplete="PF('dialogo').show();" update=":message :formCadastro:painelCadastro"/>
+					oncomplete="PF('dialogo').show();" update=":message :formCadastro:painelCadastro">
+					<f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+				</p:commandButton>
 			</f:facet>
 			<p:column headerText="Nome" filterBy="#{cidade.nome}" sortBy="#{cidade.nome}">
 				<h:outputText value="#{cidade.nome}" />
@@ -33,7 +35,7 @@
 				</p:commandButton>
 				<p:commandButton icon="ui-icon-pencil" actionListener="#{cidadeBean.editar}" update=":message :formCadastro:painelCadastro" 
 					oncomplete="PF('dialogo').show();">
-					
+					<f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
 					<f:attribute name="cidadeSelecionada" value="#{cidade}"/>
 				</p:commandButton>
 
