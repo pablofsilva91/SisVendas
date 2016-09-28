@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
 import org.omnifaces.util.Messages;
@@ -14,6 +16,8 @@ import br.com.sisvendas.domain.Fabricante;
 import br.com.sisvendas.domain.Produto;
 
 @SuppressWarnings("serial")
+@ManagedBean
+@ViewScoped
 public class ProdutoBean implements Serializable {
 	private Produto produto;
 	private List<Produto> produtos;
