@@ -27,7 +27,9 @@
 				<h:outputText value="#{produto.descricao}" />
 			</p:column>
 			<p:column headerText="Preço" sortBy="#{produto.preco}" filterBy="#{produto.preco}">
-				<h:outputText value="#{produto.preco}" />" 
+				<h:outputText value="#{produto.preco}" > 
+					<f:convertNumber locale="pt_BR" minFractionDigits="2"/>
+				</h:outputText>
 			</p:column>
 			<p:column headerText="Fabricante" sortBy="#{produto.fabricante.descricao}">
 				<h:outputText value="#{produto.fabricante.descricao}" />
@@ -57,12 +59,20 @@
 				
 				<p:outputLabel for="quantidade" value="Quantidade:" />
 				<p:inputText id="quantidade" maxlength="5" size="10" value="#{produtoBean.produto.quantidade}" required="true" 
-					requiredMessage="O campo Quantidade é de preenchimento obrigatório!"  />
+					requiredMessage="O campo Quantidade é de preenchimento obrigatório!"  
+					converterMessage="Informe uma Quantidade válida"
+					validatorMessage="A quantidade mínima necessária é 0">
+					<f:validateLongRange minimum="0"/>
+				</p:inputText>
 				
 				<p:outputLabel for="preco" value="Preço:" />
 				<p:inputText id="preco" maxlength="11" size="10" value="#{produtoBean.produto.preco}" required="true" 
-					requiredMessage="O campo Preço é de preenchimento obrigatório!"  />
-				
+					requiredMessage="O campo Preço é de preenchimento obrigatório!"  
+					converterMessage="Informe um preço válido" 
+					validatorMessage="Informe um valor mínimo de 0,01">
+					<f:convertNumber locale="pt_BR" minFractionDigits="2"/>
+					<f:validateDoubleRange minimum="0.01"/>
+				</p:inputText>
 				<p:outputLabel value="Fabricante:" />
 				<p:selectOneMenu filter="true" value="#{produtoBean.produto.fabricante}" required="true"
 					requiredMessage="O campo Fabricante é de preenchimento obrigatório!" 
