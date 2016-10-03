@@ -3,12 +3,11 @@ package br.com.sisvendas.dao;
 import java.util.List;
 
 import org.junit.Ignore;
-import org.junit.Test;
 
 import br.com.sisvendas.domain.Estado;
 
 public class EstadoDAOTest {
-	@Test
+	//@Test
 	@Ignore
 	public void salvar(){
 		Estado estado = new Estado();
@@ -19,7 +18,7 @@ public class EstadoDAOTest {
 		estadoDAo.salvar(estado);
 	}
 	
-	@Test
+	//@Test
 	@Ignore
 	public void listar(){
 		EstadoDAO estadoDAO = new EstadoDAO();
@@ -33,7 +32,7 @@ public class EstadoDAOTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	@Ignore
 	public void buscar(){
 		Long codigo = 5L;
@@ -49,7 +48,7 @@ public class EstadoDAOTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	@Ignore
 	public void excluir(){
 		Long codigo = 3L;
@@ -67,7 +66,7 @@ public class EstadoDAOTest {
 		
 	}
 	
-	@Test
+	//@Test
 	@Ignore
 	public void editar(){
 		Long codigo = 4L;
@@ -88,8 +87,8 @@ public class EstadoDAOTest {
 		}
 	}
 	
-	@Test
-
+	//@Test
+	@Ignore
 	public void merge(){
 		//Merge Incluir
 //		Estado estado = new Estado();

@@ -2,13 +2,15 @@ package br.com.sisvendas.dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import org.junit.Test;
+
+import org.junit.Ignore;
 
 import br.com.sisvendas.domain.Cliente;
 import br.com.sisvendas.domain.Pessoa;
 
 public class ClienteDAOTest {
-	@Test
+	//@Test
+	@Ignore
 	public void salvar() throws ParseException{
 		
 		PessoaDAO pessoaDAO = new PessoaDAO();

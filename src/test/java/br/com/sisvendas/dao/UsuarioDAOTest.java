@@ -1,12 +1,13 @@
 package br.com.sisvendas.dao;
 
-import org.junit.Test;
+import org.junit.Ignore;
 
 import br.com.sisvendas.domain.Pessoa;
 import br.com.sisvendas.domain.Usuario;
 
 public class UsuarioDAOTest {
-	@Test
+	//@Test
+	@Ignore
 	public void salvar(){
 		PessoaDAO pessoaDAO = new PessoaDAO();
 		Pessoa pessoa = pessoaDAO.buscar(1L);

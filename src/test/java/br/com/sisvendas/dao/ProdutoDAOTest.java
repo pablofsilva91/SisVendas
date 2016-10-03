@@ -1,13 +1,15 @@
 package br.com.sisvendas.dao;
 
 import java.math.BigDecimal;
-import org.junit.Test;
+
+import org.junit.Ignore;
 
 import br.com.sisvendas.domain.Fabricante;
 import br.com.sisvendas.domain.Produto;
 
 public class ProdutoDAOTest {
-	@Test
+	//@Test
+	@Ignore
 	public void salvar(){
 		FabricanteDAO fabricanteDAO = new FabricanteDAO();
 		Fabricante fabricante = fabricanteDAO.buscar(new Long("1"));
