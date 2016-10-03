@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import org.omnifaces.util.Messages;
 
 import br.com.sisvendas.dao.PessoaDAO;
 import br.com.sisvendas.domain.Pessoa;
 
+@ViewScoped
+@ManagedBean
 @SuppressWarnings("serial")
 public class PessoaBean implements Serializable {
 	private Pessoa pessoa;
@@ -40,4 +44,15 @@ public class PessoaBean implements Serializable {
 		}
 	}
 	
+	public void novo(){
+		
+	}
+	
+	public void excluir(){
+		
+	}
+	
+	public void editar(){
+		
+	}
 }
