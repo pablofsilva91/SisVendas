@@ -45,6 +45,10 @@ public class Pessoa extends GenericDomain {
 	@ManyToOne
 	@JoinColumn (nullable = false)
 	private Cidade cidade;
+	
+	@ManyToOne
+	@JoinColumn (nullable = false)
+	private Estado estado;
 
 	public String getNome() {
 		return nome;
@@ -140,6 +144,14 @@ public class Pessoa extends GenericDomain {
 
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 	
 	
