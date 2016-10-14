@@ -16,7 +16,7 @@
 			paginator="true" value="#{pessoaBean.pessoas}" var="pessoa" rows="10" >
 			<f:facet name="footer">
 				<p:commandButton value="Novo" actionListener="#{pessoaBean.novo}" oncomplete="PF('dialogo').show();"
-					update=":message" >
+					update=":message :formCadastro:painelCadastro" >
 					<f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
 				</p:commandButton>
 			</f:facet>
@@ -56,6 +56,11 @@
 			<p:column headerText="Cidade" filterBy="#{pessoa.cidade.nome}" sortBy="#{pessoa.cidade.nome}">
 				<h:outputText value="#{pessoa.cidade.nome}" />
 			</p:column>
+			
+			<p:column headerText="Estado" filterBy="#{pessoa.estado.sigla}" sortBy="#{pessoa.estado.sigla}">
+				<h:outputText value="#{pessoa.estado.sigla}" />
+			</p:column>
+			
 			<p:column headerText="Opções">
 				<p:commandButton icon="ui-icon-trash" actionListener="#{pessoaBean.excluir()}" update=":message :formListagem:tabela" >
 					<p:confirm header="Confirmação" message="Deseja excluir a pessoa?" icon="ui-icon-alert"/>
@@ -118,6 +123,13 @@
 				<p:outputLabel for="email" value="Email:" />
 				<p:inputText id="email" maxlength="100" size="30" value="#{pessoaBean.pessoa.email}" required="true" 
 					requiredMessage="O campo Email é de preenchimento obrigatório" />
+					
+				<p:outputLabel for="estado" value="Estado:" />
+				<p:selectOneMenu id="estado" filter="true" converter="omnifaces.SelectItemsConverter"
+					 required="true" requiredMessage="O campo Estado é de preenchimento obrigatório" >
+					 <f:selectItem noSelectionOption="true" itemLabel="Selecione um Estado"/>
+					 <f:selectItems value="#{pessoaBean.estados}" var="estado" itemValue="#{estado}" itemLabel="#{estado.sigla}" />
+				</p:selectOneMenu>
 				
 				<p:outputLabel for="cidade" value="Cidade:" />
 				<p:selectOneMenu id="cidade" filter="true" value="#{pessoaBean.pessoa.cidade}" converter="omnifaces.SelectItemsConverter"
@@ -129,7 +141,8 @@
 			</h:panelGrid>	
 			
 			<h:panelGrid columns="2">	
-				<p:commandButton value="Salvar"/>
+				<p:commandButton value="Salvar" actionListener="#{pessoaBean.salvar()}"
+					update=":message :formCadastro:painelCadastro :formListagem:tabela"/>
 				<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
 			</h:panelGrid>
 		</h:form>
