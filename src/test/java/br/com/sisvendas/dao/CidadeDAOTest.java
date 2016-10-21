@@ -3,12 +3,13 @@ package br.com.sisvendas.dao;
 import java.util.List;
 
 import org.junit.Ignore;
+import org.junit.Test;
 
 import br.com.sisvendas.domain.Cidade;
 import br.com.sisvendas.domain.Estado;
 
 public class CidadeDAOTest {
-	//@Test
+	@Test
 	@Ignore
 	public void salvar(){
 		EstadoDAO estadoDAO = new EstadoDAO();
@@ -23,7 +24,7 @@ public class CidadeDAOTest {
 		cidadeDAO.salvar(cidade);
 	}
 	
-	//@Test
+	@Test
 	@Ignore
 	public void listar(){
 		CidadeDAO cidadeDAO = new CidadeDAO();
@@ -37,7 +38,7 @@ public class CidadeDAOTest {
 		}
 	}
 	
-	//@Test
+	@Test
 	@Ignore
 	public void buscar(){
 		Long codigo = 1L;
@@ -52,7 +53,7 @@ public class CidadeDAOTest {
 		
 	}
 	
-	//@Test
+	@Test
 	@Ignore
 	public void excluir(){
 		Long codigo = 2L;
@@ -68,7 +69,7 @@ public class CidadeDAOTest {
 		}
 	}
 	
-	//@Test
+	@Test
 	@Ignore
 	public void editar(){
 		Long codigoEstado = 4L;
@@ -98,6 +99,20 @@ public class CidadeDAOTest {
 		System.out.println("Código do Estado:" +  cidade.getEstado().getCodigo());
 		
 		
+	}
+	
+	@Test
+	public void buscarPorEstado(){
+		Long estadoCodigo = 5L;
+		CidadeDAO cidadeDAO = new CidadeDAO();
+		List<Cidade> resultado = cidadeDAO.buscarPorEstado(estadoCodigo);
+		
+		for(Cidade cidade : resultado){
+			System.out.println("Código: " + cidade.getCodigo());
+			System.out.println("Nome da Cidade: " + cidade.getNome());
+			System.out.println("Sigla do Estado:" +  cidade.getEstado().getSigla());
+			System.out.println("Código do Estado:" +  cidade.getEstado().getCodigo());
+		}
 	}
 
 }

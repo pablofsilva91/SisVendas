@@ -85,7 +85,7 @@
 					requiredMessage="O campo nome é de preenchimento obrigatório" />
 
 				<p:outputLabel for="cpf" value="CPF:" />
-				<p:inputText id="cpf" maxlength="11" size="11"  value="#{pessoaBean.pessoa.cpf}" required="true" 
+				<p:inputMask mask="999.999.999-99" id="cpf" size="11"  value="#{pessoaBean.pessoa.cpf}" required="true" 
 					requiredMessage="O campo CPF é de preenchimento obrigatório" />
 				
 				<p:outputLabel for="rg" value="RG:" />
