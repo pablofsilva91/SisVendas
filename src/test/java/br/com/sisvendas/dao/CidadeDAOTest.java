@@ -102,6 +102,7 @@ public class CidadeDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void buscarPorEstado(){
 		Long estadoCodigo = 5L;
 		CidadeDAO cidadeDAO = new CidadeDAO();
