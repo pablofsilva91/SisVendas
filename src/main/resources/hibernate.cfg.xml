@@ -28,9 +28,12 @@
         <!-- Mostra as SQLs geradas -->
         <property name="show_sql">true</property>
 
-        <!-- Cria as tabelas do banco de dados -->
+<!--         Cria as tabelas do banco de dados -->
         <property name="hbm2ddl.auto">update</property>
-
+        
+<!--         Cria as tabelas do banco de dados -->
+<!--         <property name="hbm2ddl.auto">create</property> -->
+        
 		<!-- Mapeamento -->
 		<mapping class= "br.com.sisvendas.domain.Estado"/> 
 		<mapping class= "br.com.sisvendas.domain.Cidade"/>
